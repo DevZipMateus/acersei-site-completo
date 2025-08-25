@@ -12,7 +12,7 @@ import Footer from '@/components/Footer';
 const Index = () => {
   useEffect(() => {
     // SEO and page setup
-    document.title = "Acertei Contabilidade - Escritório Contábil em Santa Rosa/RS";
+    document.title = "Acertei Contabilidade | Escritório Contábil Santa Rosa/RS";
     
     // Add smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
