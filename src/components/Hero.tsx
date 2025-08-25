@@ -1,110 +1,119 @@
-
-import { ArrowRight, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { CheckCircle, Users, Award } from 'lucide-react';
+import { useEffect } from 'react';
 
-const Hero = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  };
+interface HeroProps {
+  scrollToSection: (sectionId: string) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById('inicio');
+      if (heroSection) {
+        const scrollPosition = window.scrollY;
+        const sectionHeight = heroSection.offsetHeight;
+        const windowHeight = window.innerHeight;
+
+        // Adjust the threshold as needed
+        const threshold = sectionHeight - windowHeight / 2;
+
+        if (scrollPosition > threshold) {
+          // Change header background color when the Hero section is out of view
+          document.querySelector('header')?.classList.add('bg-primary');
+        } else {
+          // Revert to the original header background when the Hero section is in view
+          document.querySelector('header')?.classList.remove('bg-primary');
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden pt-16 sm:pt-20 lg:pt-24">
-      {/* Background image */}
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/lovable-uploads/6a9a7dd5-2906-429f-8f30-803f9b001591.png')"
+          backgroundImage: 'url("/lovable-uploads/74217e1a-d395-43ca-897b-1037a56268ca.png")',
         }}
-      ></div>
+      />
       
-      {/* Dark overlay for better contrast */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      {/* Blue Overlay */}
+      <div className="absolute inset-0 bg-primary/70" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full max-w-7xl">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Semi-transparent background for text */}
-          <div className="backdrop-blur-sm rounded-xl lg:rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 border border-white/20 shadow-2xl bg-white/10 mx-auto max-w-4xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 animate-fade-in text-white leading-tight">
-              <span className="block">Acerte na sua</span>
-              <span className="block text-accent">decisão contábil</span>
-            </h1>
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+            Sua Contabilidade
+            <br className="hidden sm:block" />
+            <span className="text-accent"> Inteligente e Confiável</span>
+          </h1>
+          
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto px-2">
+            Transformamos a gestão financeira da sua empresa com tecnologia avançada e atendimento personalizado
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
+            <Button 
+              size="lg"
+              className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 min-w-[200px]"
+              onClick={() => window.open('https://wa.me/5555991467177', '_blank')}
+            >
+              Falar no WhatsApp
+            </Button>
             
-            <p className="text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 max-w-3xl mx-auto animate-fade-in leading-relaxed px-2" style={{
-              animationDelay: '0.2s'
-            }}>
-              Mais de 20 anos de experiência oferecendo soluções contábeis completas 
-              para empresas em Santa Rosa/RS e região
+            <Button 
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-primary px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 min-w-[200px]"
+              onClick={() => scrollToSection('servicos')}
+            >
+              Conheça Nossos Serviços
+            </Button>
+          </div>
+        </div>
+
+        {/* Features */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-12 lg:mt-16 max-w-5xl mx-auto">
+          <div className="text-center p-4 lg:p-6">
+            <div className="flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 bg-white/20 rounded-full mb-3 lg:mb-4 mx-auto">
+              <CheckCircle className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
+            </div>
+            <h3 className="text-base lg:text-lg font-semibold text-white mb-2">
+              20+ anos de experiência
+            </h3>
+            <p className="text-sm lg:text-base text-white/80 leading-relaxed">
+              Experiência consolidada no mercado contábil
             </p>
+          </div>
 
-            {/* Benefits */}
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 mb-8 sm:mb-10 animate-fade-in px-2" style={{
-              animationDelay: '0.4s'
-            }}>
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-white/90">
-                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
-                <span className="text-sm sm:text-base">20+ anos de experiência</span>
-              </div>
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-white/90">
-                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
-                <span className="text-sm sm:text-base">Tecnologia avançada</span>
-              </div>
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-white/90">
-                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
-                <span className="text-sm sm:text-base">Atendimento personalizado</span>
-              </div>
+          <div className="text-center p-4 lg:p-6">
+            <div className="flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 bg-white/20 rounded-full mb-3 lg:mb-4 mx-auto">
+              <Users className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
             </div>
+            <h3 className="text-base lg:text-lg font-semibold text-white mb-2">
+              Tecnologia avançada
+            </h3>
+            <p className="text-sm lg:text-base text-white/80 leading-relaxed">
+              Sistemas modernos para gestão eficiente
+            </p>
+          </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in px-2" style={{
-              animationDelay: '0.6s'
-            }}>
-              <Button 
-                size="lg" 
-                className="btn-hero-primary text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto whitespace-nowrap" 
-                onClick={() => window.open('https://wa.me/5555991467177', '_blank')}
-              >
-                <span className="hidden sm:inline">Falar com Especialista</span>
-                <span className="sm:hidden">Falar Conosco</span>
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                onClick={() => scrollToSection('servicos')} 
-                className="btn-hero-outline text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 bg-green-600 hover:bg-green-500 w-full sm:w-auto whitespace-nowrap"
-              >
-                <span className="hidden sm:inline">Conhecer Serviços</span>
-                <span className="sm:hidden">Nossos Serviços</span>
-              </Button>
+          <div className="text-center p-4 lg:p-6 sm:col-span-2 lg:col-span-1">
+            <div className="flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 bg-white/20 rounded-full mb-3 lg:mb-4 mx-auto">
+              <Award className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
             </div>
-
-            {/* Trust indicators */}
-            <div className="mt-12 sm:mt-16 text-center animate-fade-in" style={{
-              animationDelay: '0.8s'
-            }}>
-              <p className="text-white/70 mb-4 text-sm sm:text-base px-2">Mais de 200 empresas confiam em nossos serviços</p>
-              <div className="flex justify-center items-center gap-4 sm:gap-8 text-white/60 flex-wrap">
-                <div className="text-center min-w-0">
-                  <div className="text-xl sm:text-2xl font-bold text-white">20+</div>
-                  <div className="text-xs sm:text-sm">Anos de experiência</div>
-                </div>
-                <div className="w-px h-8 sm:h-12 bg-white/30 hidden sm:block"></div>
-                <div className="text-center min-w-0">
-                  <div className="text-xl sm:text-2xl font-bold text-white">200+</div>
-                  <div className="text-xs sm:text-sm">Clientes atendidos</div>
-                </div>
-                <div className="w-px h-8 sm:h-12 bg-white/30 hidden sm:block"></div>
-                <div className="text-center min-w-0">
-                  <div className="text-xl sm:text-2xl font-bold text-white">100%</div>
-                  <div className="text-xs sm:text-sm">Dedicação</div>
-                </div>
-              </div>
-            </div>
+            <h3 className="text-base lg:text-lg font-semibold text-white mb-2">
+              Atendimento personalizado
+            </h3>
+            <p className="text-sm lg:text-base text-white/80 leading-relaxed">
+              Soluções sob medida para sua empresa
+            </p>
           </div>
         </div>
       </div>
