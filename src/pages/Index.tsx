@@ -22,14 +22,21 @@ const Index = () => {
     };
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
       <main>
-        <Hero />
+        <Hero scrollToSection={scrollToSection} />
         <EgestorERP />
-        <About />
-        <Services />
+        <About scrollToSection={scrollToSection} />
+        <Services scrollToSection={scrollToSection} />
         <Contact />
       </main>
       <Footer />
