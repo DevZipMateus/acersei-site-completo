@@ -101,8 +101,12 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button 
-              variant={isScrolled ? "default" : "outline"}
-              className={isScrolled ? "" : "btn-hero-outline"}
+              variant={isScrolled ? "default" : "default"}
+              className={`${
+                isScrolled 
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90" 
+                  : "bg-accent text-accent-foreground hover:bg-accent/90 border-none shadow-md"
+              } font-medium px-6 py-2 transition-all duration-300`}
               onClick={() => window.open('https://wa.me/5555991467177', '_blank')}
             >
               Falar no WhatsApp
@@ -151,7 +155,7 @@ const Header = () => {
                 Contato
               </button>
               <Button 
-                className="w-full mt-4"
+                className="w-full mt-4 bg-accent text-accent-foreground hover:bg-accent/90"
                 onClick={() => window.open('https://wa.me/5555991467177', '_blank')}
               >
                 Falar no WhatsApp
