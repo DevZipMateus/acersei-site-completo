@@ -26,11 +26,11 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : ''
+        isScrolled ? 'shadow-lg' : ''
       }`}
-      style={!isScrolled ? {
+      style={{
         background: 'linear-gradient(135deg, #16a7e0 0%, #1395cc 100%)'
-      } : {}}
+      }}
     >
       <div className="container mx-auto px-4">
         {/* Top bar */}
@@ -66,33 +66,25 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection('inicio')}
-              className={`hover:text-primary transition-colors ${
-                isScrolled ? 'text-foreground' : 'text-white'
-              }`}
+              className="text-white hover:text-accent transition-colors"
             >
               Início
             </button>
             <button
               onClick={() => scrollToSection('sobre')}
-              className={`hover:text-primary transition-colors ${
-                isScrolled ? 'text-foreground' : 'text-white'
-              }`}
+              className="text-white hover:text-accent transition-colors"
             >
               Sobre
             </button>
             <button
               onClick={() => scrollToSection('servicos')}
-              className={`hover:text-primary transition-colors ${
-                isScrolled ? 'text-foreground' : 'text-white'
-              }`}
+              className="text-white hover:text-accent transition-colors"
             >
               Serviços
             </button>
             <button
               onClick={() => scrollToSection('contato')}
-              className={`hover:text-primary transition-colors ${
-                isScrolled ? 'text-foreground' : 'text-white'
-              }`}
+              className="text-white hover:text-accent transition-colors"
             >
               Contato
             </button>
@@ -101,12 +93,8 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button 
-              variant={isScrolled ? "default" : "default"}
-              className={`${
-                isScrolled 
-                  ? "bg-primary text-primary-foreground hover:bg-primary/90" 
-                  : "bg-accent text-accent-foreground hover:bg-accent/90 border-none shadow-md"
-              } font-medium px-6 py-2 transition-all duration-300`}
+              variant="default"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 border-none shadow-md font-medium px-6 py-2 transition-all duration-300"
               onClick={() => window.open('https://wa.me/5555991467177', '_blank')}
             >
               Falar no WhatsApp
@@ -119,9 +107,9 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </nav>
