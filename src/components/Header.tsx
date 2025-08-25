@@ -24,9 +24,14 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-    }`}>
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : ''
+      }`}
+      style={!isScrolled ? {
+        background: 'linear-gradient(135deg, #16a7e0 0%, #1395cc 100%)'
+      } : {}}
+    >
       <div className="container mx-auto px-4">
         {/* Top bar */}
         <div className={`border-b border-white/20 py-2 text-sm ${
