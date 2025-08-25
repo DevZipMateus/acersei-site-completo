@@ -1,3 +1,4 @@
+
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -10,7 +11,18 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="section-gradient relative min-h-screen flex items-center overflow-hidden">
+    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/lovable-uploads/6a9a7dd5-2906-429f-8f30-803f9b001591.png')"
+        }}
+      ></div>
+      
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/50"></div>
+
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
