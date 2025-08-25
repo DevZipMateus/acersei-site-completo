@@ -115,29 +115,31 @@ const Header = () => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200 py-4 shadow-lg">
+          <div className="lg:hidden py-4 shadow-lg" style={{
+            background: 'linear-gradient(135deg, #16a7e0 0%, #1395cc 100%)'
+          }}>
             <div className="flex flex-col space-y-4">
               <button
                 onClick={() => scrollToSection('inicio')}
-                className="text-left px-2 py-2 hover:text-primary transition-colors text-base"
+                className="text-left px-2 py-2 text-white hover:text-accent transition-colors text-base"
               >
                 Início
               </button>
               <button
                 onClick={() => scrollToSection('sobre')}
-                className="text-left px-2 py-2 hover:text-primary transition-colors text-base"
+                className="text-left px-2 py-2 text-white hover:text-accent transition-colors text-base"
               >
                 Sobre
               </button>
               <button
                 onClick={() => scrollToSection('servicos')}
-                className="text-left px-2 py-2 hover:text-primary transition-colors text-base"
+                className="text-left px-2 py-2 text-white hover:text-accent transition-colors text-base"
               >
                 Serviços
               </button>
               <button
                 onClick={() => scrollToSection('contato')}
-                className="text-left px-2 py-2 hover:text-primary transition-colors text-base"
+                className="text-left px-2 py-2 text-white hover:text-accent transition-colors text-base"
               >
                 Contato
               </button>
