@@ -66,38 +66,38 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicos" className="py-20 section-muted">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
+    <section id="servicos" className="py-12 sm:py-16 lg:py-20 section-muted">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-section mb-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 sm:mb-6">
               Nossos <span className="text-primary">Serviços</span>
             </h2>
-            <p className="text-lg text-muted max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-muted max-w-3xl mx-auto px-4">
               Oferecemos uma gama completa de serviços contábeis para empresas de todos os portes, 
               sempre com foco na qualidade e na satisfação do cliente.
             </p>
           </div>
 
           {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 mb-8 sm:mb-12">
             {services.map((service, index) => (
-              <Card key={index} className="card-service group cursor-pointer">
+              <Card key={index} className="card-service group cursor-pointer h-full">
                 <CardHeader className="pb-4">
-                  <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="w-7 h-7 text-primary" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardTitle className="text-lg sm:text-xl">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                  <p className="text-muted-foreground mb-4 leading-relaxed text-sm sm:text-base">
                     {service.description}
                   </p>
                   <ul className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-sm">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
                         <span className="text-muted-foreground">{feature}</span>
                       </li>
                     ))}
@@ -108,21 +108,21 @@ const Services = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center bg-card rounded-2xl p-8 border border-border/50">
-            <h3 className="text-2xl font-semibold mb-4">
+          <div className="text-center bg-card rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-border/50">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-4">
               Precisa de uma <span className="text-primary">consultoria personalizada</span>?
             </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm sm:text-base px-4">
               Nossa equipe está pronta para analisar suas necessidades específicas e 
               oferecer a melhor solução contábil para o seu negócio.
             </p>
             <Button 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-lg px-8"
+              className="bg-accent hover:bg-accent/90 text-base sm:text-lg px-6 sm:px-8 w-full sm:w-auto"
               onClick={() => window.open('https://wa.me/5555991467177', '_blank')}
             >
               Solicitar Orçamento
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
           </div>
         </div>

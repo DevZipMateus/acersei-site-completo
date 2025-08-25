@@ -6,8 +6,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-foreground text-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="max-w-6xl mx-auto">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div className="lg:col-span-2">
@@ -15,9 +15,9 @@ const Footer = () => {
                 <img 
                   src="/lovable-uploads/6aed9212-8084-4d0b-92fe-accd28ea7e04.png" 
                   alt="Acertei Contabilidade - Logo" 
-                  className="h-12 w-auto mb-4"
+                  className="h-10 sm:h-12 w-auto mb-4"
                 />
-                <p className="text-white/80 leading-relaxed max-w-md">
+                <p className="text-white/80 leading-relaxed max-w-md text-sm sm:text-base">
                   Escritório contábil com mais de 20 anos de experiência, oferecendo 
                   soluções completas e personalizadas para empresas de todos os portes 
                   em Santa Rosa/RS e região.
@@ -25,12 +25,12 @@ const Footer = () => {
               </div>
               
               <div className="mb-6">
-                <h4 className="font-semibold mb-3">CNPJ</h4>
-                <p className="text-white/80">10.694.759/0001-75</p>
+                <h4 className="font-semibold mb-3 text-sm sm:text-base">CNPJ</h4>
+                <p className="text-white/80 text-sm sm:text-base">10.694.759/0001-75</p>
               </div>
 
               <div>
-                <h4 className="font-semibold mb-3">Redes Sociais</h4>
+                <h4 className="font-semibold mb-3 text-sm sm:text-base">Redes Sociais</h4>
                 <div className="flex gap-3">
                   <a
                     href="https://www.facebook.com/acerteicontabilidade/"
@@ -65,12 +65,12 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div>
-              <h4 className="font-semibold mb-6">Contato</h4>
+              <h4 className="font-semibold mb-6 text-sm sm:text-base">Contato</h4>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-white/80 text-sm">
+                    <p className="text-white/80 text-xs sm:text-sm">
                       Rua Guaporé, 401, Sala 201<br />
                       Centro, Santa Rosa/RS
                     </p>
@@ -78,23 +78,23 @@ const Footer = () => {
                 </div>
                 
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-primary" />
-                  <div className="text-white/80 text-sm">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+                  <div className="text-white/80 text-xs sm:text-sm">
                     <p>(55) 3512-6009</p>
                     <p>(55) 99146-7177</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-primary" />
-                  <p className="text-white/80 text-sm">
+                <div className="flex items-start gap-3">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <p className="text-white/80 text-xs sm:text-sm break-words">
                     jarbas@acerteicontabilidade.com.br
                   </p>
                 </div>
                 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div className="text-white/80 text-sm">
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <div className="text-white/80 text-xs sm:text-sm">
                     <p>Segunda a sexta</p>
                     <p>08:00 às 17:30</p>
                   </div>
@@ -104,8 +104,8 @@ const Footer = () => {
 
             {/* Services */}
             <div>
-              <h4 className="font-semibold mb-6">Serviços</h4>
-              <ul className="space-y-2 text-sm text-white/80">
+              <h4 className="font-semibold mb-6 text-sm sm:text-base">Serviços</h4>
+              <ul className="space-y-2 text-xs sm:text-sm text-white/80">
                 <li>Contabilidade</li>
                 <li>Escrita Fiscal</li>
                 <li>Folha de Pagamento</li>
@@ -119,10 +119,10 @@ const Footer = () => {
           </div>
 
           {/* Bottom Section */}
-          <div className="border-t border-white/20 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <div className="text-center md:text-left">
-                <p className="text-white/80 text-sm">
+          <div className="border-t border-white/20 mt-8 sm:mt-12 pt-6 sm:pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+              <div>
+                <p className="text-white/80 text-xs sm:text-sm">
                   © {currentYear} Acertei Contabilidade. Todos os direitos reservados.
                 </p>
                 <p className="text-white/60 text-xs mt-1">
