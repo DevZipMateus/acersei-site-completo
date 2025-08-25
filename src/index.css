@@ -1,63 +1,71 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Design System - Acertei Contabilidade */
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 215 25% 15%;
+
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 200 91% 48%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 200 91% 48%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 200 91% 48%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 200 91% 48%;
-    --radius: 0.5rem;
-    --chart-1: 200 91% 48%;
-    --chart-2: 200 80% 60%;
-    --chart-3: 200 70% 70%;
-    --chart-4: 200 60% 80%;
-    --chart-5: 200 50% 85%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary: Azul Acertei (#29AAE0) */
+    --primary: 199 71% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Azul mais escuro */
+    --secondary: 199 71% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted: Cinza suave */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent: Verde para CTAs */
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 199 71% 52%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(199 71% 52%) 0%, hsl(199 71% 45%) 100%);
+    --section-bg: hsl(210 20% 98%);
+    --text-light: hsl(215 16% 65%);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 200 91% 48%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 200 91% 48%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 200 91% 48%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 200 91% 48%;
-    --chart-1: 200 91% 48%;
-    --chart-2: 200 80% 60%;
-    --chart-3: 200 70% 70%;
-    --chart-4: 200 60% 80%;
-    --chart-5: 200 50% 85%;
+    --background: 215 28% 17%;
+    --foreground: 210 20% 98%;
+    --card: 215 28% 17%;
+    --card-foreground: 210 20% 98%;
+    --popover: 215 28% 17%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 199 71% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 28% 25%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 28% 25%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 28% 25%;
+    --input: 215 28% 25%;
+    --ring: 199 71% 52%;
   }
 }
 
@@ -65,7 +73,70 @@
   * {
     @apply border-border;
   }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-foreground;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero-primary {
+    @apply bg-primary text-primary-foreground border-primary/60 hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-hero-outline {
+    @apply bg-white/10 text-white border-white/60 hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all duration-300;
+  }
+  
+  /* Section Variants */
+  .section-gradient {
+    background: var(--hero-gradient);
+  }
+  
+  .section-muted {
+    @apply bg-muted/30;
+  }
+  
+  /* Card Variants */
+  .card-service {
+    @apply bg-card border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300;
+  }
+  
+  /* Text Variants */
+  .text-hero {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+  
+  .text-section {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+  
+  .text-muted {
+    @apply text-muted-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
