@@ -14,7 +14,7 @@ const Hero = () => {
     <section id="inicio" className="section-gradient relative min-h-screen flex items-center overflow-hidden">
       {/* Background image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
         style={{
           backgroundImage: "url('/lovable-uploads/74217e1a-d395-43ca-897b-1037a56268ca.png')"
         }}
